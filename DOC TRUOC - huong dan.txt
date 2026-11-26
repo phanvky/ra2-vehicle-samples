@@ -30,7 +30,8 @@ XE RADAR TĂNG TẦM BẮN: không nằm trong luật của mod mà là luật r
   Bệ phóng S300/S300D/S400/S400D chỉ tự nhắm mục tiêu trong tầm nhìn (Sight) của chính nó,
   hoặc trong 45 ô quanh một xe radar S300RADARD phe mình ĐÃ TRIỂN KHAI. Tầm bắn thật vẫn là Range= của vũ khí.
   Xe mới muốn đi cùng radar: chuẩn bị luật như bình thường (tầm bắn Range= xa, tầm nhìn Sight= ngắn),
-  Claude sẽ thêm tên xe vào danh sách trong code.
+  Claude sẽ thêm tên xe vào danh sách trong code. Hiện luật này chỉ áp dụng cho mục tiêu trên không
+  (S-300/S-400 là tên lửa phòng không); xe chống hạm thì Claude sẽ mở rộng cho tàu.
 
 MUỐN THÊM XE MỚI, CHUẨN BỊ CHO CLAUDE:
   1. File hình giống mục 1-file-hinh: .vxl + .hva (thêm tur/barl nếu có tháp pháo, nòng),
