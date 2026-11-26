@@ -1,6 +1,6 @@
 # RA2 Yuri's Revenge vehicle samples (Elaina mod)
 
-Two complete vehicles taken from the **Elaina mod 1.4.10** for Red Alert 2: Yuri's Revenge, as reference for designing a new vehicle in the same format.
+Four complete vehicles taken from the **Elaina mod 1.4.10** for Red Alert 2: Yuri's Revenge, as reference for designing a new vehicle in the same format.
 All models, icons and rules belong to the Elaina mod authors. They are shared here only as a format reference for a personal, non-commercial game setup. Please support the original mod.
 
 The game runs on **VERA20k**, a re-implementation of the RA2/YR engine. It reads the standard Westwood formats below. Ares/Phobos DLL-only features are **not** available, so use only standard `rulesmd.ini` / `artmd.ini` keys.
@@ -35,7 +35,7 @@ The game runs on **VERA20k**, a re-implementation of the RA2/YR engine. It reads
 ### How the radar extends the launchers' reach (VERA code, not INI)
 This link is **not** in the mod's INI files. It is a custom rule in this VERA build (`src/sim/smart_tactics.rs`):
 - `RADAR_GUIDED_TYPES = ["S300", "S300D", "S400", "S400D"]`, `RADAR_TYPE = "S300RADARD"`, `RADAR_DETECT_CELLS = 45`.
-- A radar-guided launcher picks targets by itself, deploys for them and keeps them (a player's order too) only when the target is inside its own `Sight=` **or** within 45 cells of an allied **deployed** `S300RADARD`. One radar serves every launcher. The weapon `Range=` still decides whether it can actually hit.
+- Today the rule covers **air targets** (the S-300/S-400 are SAMs); for an anti-ship launcher Claude would extend it to ships. A radar-guided launcher picks targets by itself, deploys for them and keeps them (a player's order too) only when the target is inside its own `Sight=` **or** within 45 cells of an allied **deployed** `S300RADARD`. One radar serves every launcher. The weapon `Range=` still decides whether it can actually hit.
 - So a new launcher (e.g. anti-ship) that should work with a radar needs: normal INI sections (vehicle, deployed form, weapon with long `Range=`, short `Sight=`), and its type names added to that list in the code (Claude does this part). A new radar truck would also be added there.
 
 ## What a new vehicle needs
