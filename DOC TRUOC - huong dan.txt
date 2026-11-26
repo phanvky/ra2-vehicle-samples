@@ -1,0 +1,34 @@
+MẪU PHƯƠNG TIỆN TRONG MOD ELAINA (lấy ra ngày 26/11/2026, chỉ để xem, game không đọc thư mục này)
+
+Mỗi xe có 3 phần:
+
+1-file-hinh/   = file hình thật mà game dùng
+  .vxl          mô hình 3D của xe (thân xe)
+  .hva          file "khớp" đi kèm mỗi .vxl, cùng tên. Thiếu là xe không hiện.
+  ...tur.vxl    tháp pháo (xe có tháp pháo xoay được, ví dụ XCB01). Cũng cần .hva cùng tên.
+  ...barl.vxl   nòng súng riêng (nếu có; hai xe mẫu này không có)
+  ...icon.shp   ảnh nút mua ở thanh bên phải, cỡ 60x48 điểm ảnh
+
+2-anh-xem-truoc/ = ảnh PNG để bạn nhìn (game không dùng)
+  ...-8-huong.png  xe nhìn từ 8 hướng
+  ...-nut-mua.png  ảnh nút mua (màu có thể hơi khác trong game)
+
+3-luat-cua-xe.ini = phần luật (mở bằng TextEdit)
+  [K300P]        máu (Strength), giáp (Armor), tốc độ (Speed), giá (Cost),
+                 phe được mua (Owner), cần nhà gì (Prerequisite), vũ khí (Primary/Secondary)
+  [KH38]...      vũ khí: sát thương (Damage), tầm bắn (Range), tốc độ bắn (ROF), tiếng bắn (Report)
+  ...Project     viên đạn / tên lửa bay thế nào
+  ...WH          đầu đạn: mạnh yếu với từng loại giáp (Verses)
+  (artmd.ini)    khai báo hình: tên ảnh nút mua (Cameo), xe 3D (Voxel=yes), chỗ nòng bắn ra (FireFLH)
+
+Dạng thứ hai của xe:
+  K300P  -> K300PD : dạng đã triển khai (bấm D), là một loại xe riêng có hình riêng.
+  XCB01  -> XCB01W : dạng khi xuống nước (xe lội nước), có hình riêng.
+
+MUỐN THÊM XE MỚI, CHUẨN BỊ CHO CLAUDE:
+  1. File hình giống mục 1-file-hinh: .vxl + .hva (thêm tur/barl nếu có tháp pháo, nòng),
+     và ảnh nút mua (.shp 60x48, hoặc một ảnh PNG/JPG để Claude chuyển).
+     Không có hình riêng thì nói "mượn hình xe X".
+  2. Tên tiếng Việt, phe được mua, cần nhà gì.
+  3. Sức mạnh: so với một xe có sẵn, ví dụ "như XCB01 nhưng máu gấp đôi, giá 1500".
+  4. Tiếng: nên mượn tiếng của một xe có sẵn.
