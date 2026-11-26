@@ -25,6 +25,13 @@ Dạng thứ hai của xe:
   K300P  -> K300PD : dạng đã triển khai (bấm D), là một loại xe riêng có hình riêng.
   XCB01  -> XCB01W : dạng khi xuống nước (xe lội nước), có hình riêng.
 
+S400 -> S400D (bệ phóng đã triển khai), S300RADAR -> S300RADARD (radar đã triển khai, Sight=25).
+XE RADAR TĂNG TẦM BẮN: không nằm trong luật của mod mà là luật riêng trong code VERA (smart_tactics.rs).
+  Bệ phóng S300/S300D/S400/S400D chỉ tự nhắm mục tiêu trong tầm nhìn (Sight) của chính nó,
+  hoặc trong 45 ô quanh một xe radar S300RADARD phe mình ĐÃ TRIỂN KHAI. Tầm bắn thật vẫn là Range= của vũ khí.
+  Xe mới muốn đi cùng radar: chuẩn bị luật như bình thường (tầm bắn Range= xa, tầm nhìn Sight= ngắn),
+  Claude sẽ thêm tên xe vào danh sách trong code.
+
 MUỐN THÊM XE MỚI, CHUẨN BỊ CHO CLAUDE:
   1. File hình giống mục 1-file-hinh: .vxl + .hva (thêm tur/barl nếu có tháp pháo, nòng),
      và ảnh nút mua (.shp 60x48, hoặc một ảnh PNG/JPG để Claude chuyển).

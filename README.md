@@ -25,6 +25,19 @@ The game runs on **VERA20k**, a re-implementation of the RA2/YR engine. It reads
 - On water it uses `WaterImage=XCB01W` (`xcb01w.vxl` + `xcb01wtur.vxl`).
 - Weapons `BMP1Gun` (cannon) and `M1134Launcher` (missile).
 
+### S400 – long-range SAM launcher
+- `S400` (mobile) deploys into `S400D` (`IsSimpleDeployer=yes`, `UnloadingClass=S400D`, `DeployFire=yes`). No turret. `Sight=15`.
+- Weapons `S400Misl` / `S300MislE`, projectile `S300Proj`, warhead `BUKWH`.
+
+### S300RADAR – search radar truck
+- `S300RADAR` (mobile, `Sight=7`) deploys into `S300RADARD` (`Sight=25`). No weapon.
+
+### How the radar extends the launchers' reach (VERA code, not INI)
+This link is **not** in the mod's INI files. It is a custom rule in this VERA build (`src/sim/smart_tactics.rs`):
+- `RADAR_GUIDED_TYPES = ["S300", "S300D", "S400", "S400D"]`, `RADAR_TYPE = "S300RADARD"`, `RADAR_DETECT_CELLS = 45`.
+- A radar-guided launcher picks targets by itself, deploys for them and keeps them (a player's order too) only when the target is inside its own `Sight=` **or** within 45 cells of an allied **deployed** `S300RADARD`. One radar serves every launcher. The weapon `Range=` still decides whether it can actually hit.
+- So a new launcher (e.g. anti-ship) that should work with a radar needs: normal INI sections (vehicle, deployed form, weapon with long `Range=`, short `Sight=`), and its type names added to that list in the code (Claude does this part). A new radar truck would also be added there.
+
 ## What a new vehicle needs
 1. `NAME.vxl` + `NAME.hva` (plus `NAMEtur.vxl/.hva` and `NAMEbarl.vxl/.hva` if it has a turret / separate barrel, and extra sets for deployed or water forms).
 2. `NAMEicon.shp` cameo, 60x48 (or a 60x48 PNG to be converted).
